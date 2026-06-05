@@ -115,6 +115,7 @@ background-size: cover;
         <option selected disabled>Select Option</option>
         <option value="option1">ETS364</option>
         <option value="option2">ETS800</option>
+        <option value="option2">ETS800SU</option>
       </select>
       
       <label for="dropdown2">Workbench:</label>
@@ -274,6 +275,7 @@ background-size: cover;
     document.getElementById("dropdown1").addEventListener("change", function () {
       var opt1 = ['Eagle 12', 'Eagle13', 'Eagle14', 'Eagle16', 'Eagle17', 'Eagle2', 'A36402', 'A36401', 'Eagle5', 'Eagle6'];
       var opt2 = ['ETS800 08 H1', 'ETS800 08 H2', 'ETS800 11 H1', 'ETS800 11 H2', 'ETS800 18 H1', 'ETS800 20 H1','A80004H1','A80004H2', 'A80003', 'ETS800 24 H1', 'ETS800 24 H2', 'A80001H1', 'A80001H2', 'A80002H1', 'A80002H2'];
+      var opt3 = ['A80004h11'];
       const workbench = document.getElementById("dropdown2");
       workbench.innerHTML = "";
       if(this.value==="option1"){
@@ -288,6 +290,17 @@ background-size: cover;
       });
       }
       if(this.value==="option2"){
+        while (workbench.options.length > 0) {                
+          workbench.remove(0);
+        } 
+        opt2.forEach(option => {
+          let optionElement = document.createElement('option');
+          optionElement.value = option;
+          optionElement.textContent = option;
+          workbench.appendChild(optionElement);
+      });
+      }
+      if(this.value==="option3"){
         while (workbench.options.length > 0) {                
           workbench.remove(0);
         } 
